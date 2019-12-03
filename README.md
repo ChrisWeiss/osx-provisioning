@@ -17,15 +17,15 @@ Assumptions:
 
 ## Restore disk backup
 
-Copy `~/Libraries/Application Data`
-
-```bash
-for file in dot.*; do mv "$file" "${file#dot}"; done;
-```
+Pull what you need from `~/Libraries/Application Data`
 
 ## Deploy SSH keys
 
 You need to have backed up your SSH keys (you did that, right?). Update your public key in bitbucket/github/etc.
+
+## Log in to Mac App Store
+
+You'll need to have activated your account on the MAS to do the Homebrew restore.
 
 ## Homebrew
 
@@ -37,9 +37,7 @@ You need to have backed up your SSH keys (you did that, right?). Update your pub
 
 ## Install packages
 
-This assumes you have a `Brewfile` in the current folder. Because the included Brewfile installs a newer version of `zsh` in `/usr/local/bin`, you'll need to update `/etc/shells`.
-
-Add `/usr/local/bin/zsh` to `/etc/shells`
+This assumes you have a `Brewfile` in the current folder. This will take a long time.
 
 ```bash
 brew bundle
@@ -52,6 +50,9 @@ As per the documentation.
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+Because the included Brewfile installs a newer version of `zsh` in `/usr/local/bin`, you'll need to update `/etc/shells`.
+
+Add `/usr/local/bin/zsh` to `/etc/shells`
 
 Once installed, you'll want to change the shell to the newer version of `zsh` that was installed by `Homebrew`.
 
@@ -109,6 +110,26 @@ Add the following to settings.json:
 ```
 
 ## Set OS-X Configuration Defaults
+
+Run `preferences.sh`. This will write a whole bunch of plist updates. You'll need to enter your admin password at some point, so don't walk away.
+
+```bash
+preferences.sh
+```
+Then reboot and you should be good to go.
+
+## Items that still need to be done manually
+
+1. Enroll fingerprint and set to login/unlock authentication
+1. Map CapsLock to Control - This requires knowing the keyboard ID which could be attached to an external keyboard. TODO: Write loops to do all instantiated keyboards.
+1. Launch all the apps and set them to launch at startup, insert your credentials, etc.
+
+
+
+
+# Details
+
+## Plist tweaks
 
 This is a large collection of exposed `.plist` configuration options. Use them as needed. These are all executed from a CLI as the current user.
 
@@ -342,10 +363,5 @@ Edit `/etc/pam.d/sudo` and add the following line to the top
 
 `auth sufficient pam_tid.so`
 
-## Items that still need to be done manually
-
-1. Enroll fingerprint and set to login/unlock authentication
-1. Map CapsLock to Control - This requires knowing the keyboard ID which could be attached to an external keyboard. TODO: Write loops to do all instantiated keyboards.
-1. Launch all the apps and set them to launch at startup, insert your credentials, etc.
 
 ~~
