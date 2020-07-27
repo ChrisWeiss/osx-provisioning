@@ -7,7 +7,7 @@ This is a Brewfile containing my currently installed apps and a shell script tha
 
 Assumptions:
 
-1. You have backed up key files in `~/Libraries/Application Data`. Note that if you're using Box, you'll need to archive the folder as hidden and dotfiles aren't always captured. (Nike's policies forbid the use of external USB drives.)
+1. You have backed up key files in `~/Libraries/Application Data`. Note that if you're using Box, you'll need to archive the folder as hidden and dotfiles aren't always captured. 
 
 1. You have backed up critical files in your home folder. I recommend storing your 'global' configuration files in Git following the pattern outlined here: <https://www.atlassian.com/git/tutorials/dotfiles> (or similar). Make sure you also back up 'local' configuration files as well. Again, Box does not play well with hidden/dotfiles. You'll want to Zip everything or rename to not be dotfiles.
 

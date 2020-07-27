@@ -1,0 +1,13 @@
+PyYAML
+bandit
+dateparser
+jupyter
+jupyterlab
+matplotlib
+numpy
+pandas
+pygame
+python-dateutil
+requests
+squarify
+todoist-python
